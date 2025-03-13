@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
+import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,12 +20,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <Header/>
+        <div className=" flex min-h-screen ">
+          {/* sidebar */}
+          <Sidebar/>
+          <div className="flex-1 p-5 bg-gray-100 overflow-y-auto scrollbar-hidden">
+          {children}
+          
+          </div>
+        </div>
+       <Toaster position="top-center" />
       </body>
     </html>
+    </ClerkProvider>
   );
 }
