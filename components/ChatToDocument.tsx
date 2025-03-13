@@ -23,7 +23,7 @@ const ChatToDocument = ({doc}: {doc: Y.Doc}) => {
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
-  const [summary, setSummary] = useState("This is cool baby")
+  const [summary, setSummary] = useState("")
   const [question, setQuestion] = useState("")
   
 
