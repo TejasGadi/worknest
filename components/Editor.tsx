@@ -35,7 +35,7 @@ const BlockNote = ({doc,provider,darkMode}:EditorProps) => {
     })
 
   return (
-    <div className='relative max-w-4xl mx-auto'>
+    <div className='relative max-w-7xl mx-auto'>
       <BlockNoteView
       className='min-h-screen'
       theme={
@@ -83,8 +83,11 @@ const Editor = () => {
 
   return (
     
-    <div className='max-w-4xl mx-auto'>
-      <div className='flex items-center gap-2 justify-end mb-10'>
+    <div
+      className={`p-4 max-w-7xl mx-auto text-black`}
+      style={{ backgroundColor: darkMode ? 'rgba(2,8,23,255)' : 'white' }}
+    >
+          <div className={`flex items-center gap-2 justify-end mb-10`}>
         {/* Transale doc AI  */}
         <TranslateDocument doc={doc}/>
         {/* Chat document ai  */}
